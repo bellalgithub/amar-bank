@@ -1,12 +1,18 @@
 
-
 // Deposit Event Handler
 
 document.getElementById('depositBtn').addEventListener('click', function () {
 
     if (inputField('depositInput') > 0) {
+        // Deposit dashboard
+
         const totalDepositAmount = innerTextDashboard('currentDepositBalance') + inputField('depositInput');
         document.getElementById('currentDepositBalance').innerText = totalDepositAmount;
+
+        // Balance Dashboard
+
+        const totalBalanceAmount = innerTextDashboard('currentBalance') + inputField('depositInput');
+        document.getElementById('currentBalance').innerText = totalBalanceAmount;
 
     } else {
         alert('Please put positive and larger than 0 number');
@@ -16,14 +22,20 @@ document.getElementById('depositBtn').addEventListener('click', function () {
 
 })
 
-
 // Withdraw Event Handler
 
 document.getElementById('withdrawBtn').addEventListener('click', function () {
 
+    // Withdraw Dashboard
+
     const totalWithdrawAmount = innerTextDashboard('currentWithdrawAmount') + inputField('withdrawInput');
     if (inputField('withdrawInput') > 0) {
         document.getElementById('currentWithdrawAmount').innerText = totalWithdrawAmount;
+
+        // Balance Dashboard 
+
+        const totalBalanceAmount = innerTextDashboard('currentBalance') - inputField('withdrawInput');
+        document.getElementById('currentBalance').innerText = totalBalanceAmount;
 
     } else {
         alert('Please put positive and larger than 0 number');
