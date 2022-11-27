@@ -29,7 +29,7 @@ document.getElementById('withdrawBtn').addEventListener('click', function () {
     // Withdraw Dashboard
 
     const totalWithdrawAmount = innerTextDashboard('currentWithdrawAmount') + inputField('withdrawInput');
-    if (inputField('withdrawInput') > 0) {
+    if (inputField('withdrawInput') > 0 && inputField('withdrawInput') < innerTextDashboard('currentBalance')) {
         document.getElementById('currentWithdrawAmount').innerText = totalWithdrawAmount;
 
         // Balance Dashboard 

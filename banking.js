@@ -38,18 +38,22 @@ depositBtn.addEventListener('click', function () {
 document.getElementById('withdrawBtn').addEventListener('click', function () {
     const withdrawInput = document.getElementById('withdrawInput');
 
-    console.log('clicked it');
+
     const withdrawInputValue = withdrawInput.value;
     const withdrawInputValueNumber = parseFloat(withdrawInputValue);
 
-    if (withdrawInputValueNumber > 0) {
+    if (withdrawInputValueNumber > 0 && totalBalanceAmount) {
         const currentWithdrawAmount = document.getElementById('currentWithdrawAmount');
         const currentWithdrawAmountText = currentWithdrawAmount.innerText;
         const currentWithdrawAmountTextNumber = parseFloat(currentWithdrawAmountText);
         const totalWithdrawAmount = currentWithdrawAmountTextNumber + withdrawInputValueNumber;
         currentWithdrawAmount.innerText = totalWithdrawAmount;
 
-        // Event handler on Balance
+
+    }
+    // Event handler on Balance
+
+    else if (withdrawInputValueNumber > 0 && withdrawInputValueNumber < totalWithdrawAmount) {
 
         const currentBalance = document.getElementById('currentBalance');
         const currentBalanceText = currentBalance.innerText;
@@ -57,7 +61,9 @@ document.getElementById('withdrawBtn').addEventListener('click', function () {
         const totalBalanceAmount = currentBalanceTextNumber - withdrawInputValueNumber;
         currentBalance.innerText = totalBalanceAmount;
 
-    } else {
+    }
+
+    else {
         alert('Please Enter Positive and Large than 0 Number');
 
     }
